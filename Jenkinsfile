@@ -13,4 +13,11 @@ node {
     }
   }
   // you should add a test report here
+  try {
+        withMaven (maven: 'maven3') {
+            sh "mvn package"
+            }
+        }finally {
+            junit 'target/**/*.xml'
+        }
 }
